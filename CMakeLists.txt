@@ -13,7 +13,13 @@ list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/recipes)
 
 include(config)
 
+if(MSVC)
+        add_compile_definitions(_USE_MATH_DEFINES)
+        add_definitions(-DNOMINMAX)
+endif()
+
 add_executable(curvatures curvatures.cpp)
 target_include_directories(curvatures PRIVATE "${CMAKE_SOURCE_DIR}/deps/")
 target_link_libraries(curvatures PRIVATE Eigen3::Eigen polyscope)
+
 

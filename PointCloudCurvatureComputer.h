@@ -558,7 +558,7 @@ struct PointCloudCurvatureComputer {
   computeCurvatureMeasures( const std::vector< RealVector >  & point_normals )
   {
     const auto nb = _ptr_tree->_points.size();
-    _maxtriangles = std::max( _maxtriangles, 2UL );
+    _maxtriangles = std::max(_maxtriangles, (size_t)2UL);
     DenseVector A  ( nb ); // area
     DenseVector H  ( nb ); // mean curvatures
     DenseVector G  ( nb ); // Gaussian curvatures

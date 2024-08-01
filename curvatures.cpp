@@ -483,8 +483,10 @@ void doGenerateFromFile()
     ? readOBJAsPointCloud<RealPoint,RealVector>( input )
     : readPointCloud<RealPoint,RealVector>     ( input );
   input.close();
-  points = hausdorffPerturbation( obj_points, epsilon );
-  point_normals = uniformNormalPerturbation( obj_normals, xi );  
+  // points = hausdorffPerturbation( obj_points, epsilon );
+  // point_normals = uniformNormalPerturbation( obj_normals, xi );
+  points = obj_points;
+  point_normals = obj_normals;
   if ( ptCloud != nullptr )
     polyscope::removePointCloud( "point cloud" );
   std::cout << "Build k-d-tree ..." << std::endl;
